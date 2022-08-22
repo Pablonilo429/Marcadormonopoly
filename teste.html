@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+        
+        function markercontrol(){
+            window.onload = function () {
+                var duration = document.getElementById('timer'); // Converter para segundos
+                display = document.querySelector('#timer'); // selecionando o timer
+                startTimer(duration, display); // iniciando o timer
+            };
+            setInterval(marker_audio_one, 600000);
+        }
+        
+        
+        function marker_audio_one(){
+            const audio = new Audio('js/sommarcador2.mp3');
+            audio.play();
+        } 
+        
+        
+        function marker_audio_two(){
+            const audio = new Audio('js/sommarcador.mp3');
+            audio.play();
+        } 
+        
+        
+        
+        function alterapag(){
+            document.getElementById("viewcontrol").innerHTML = markercontrol();
+        
+        }
+        </script>   
+</head>
+<body>
+    <script>markercontrol()</script>
+</body>
+</html>
